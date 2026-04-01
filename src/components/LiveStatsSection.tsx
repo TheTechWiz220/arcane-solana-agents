@@ -1,22 +1,26 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { label: "Agents Summoned Today", value: "2,847", icon: "🧙" },
-  { label: "TECHAI Burned", value: "14,291,038", icon: "🔥" },
-  { label: "Active Wizards", value: "12,493", icon: "⚡" },
+  { label: "Agents Summoned Today", value: "2,847", icon: "🧙", glow: "box-glow-cyan" },
+  { label: "TECHAI Burned", value: "14,291,038", icon: "🔥", glow: "box-glow-gold" },
+  { label: "Active Wizards", value: "12,493", icon: "⚡", glow: "box-glow-purple" },
 ];
 
 const LiveStatsSection = () => (
-  <section className="relative py-20 px-4">
-    <div className="container mx-auto max-w-4xl">
-      <motion.h2
+  <section className="relative py-20 px-4 parchment-overlay">
+    <div className="section-divider mb-20" />
+    <div className="container mx-auto max-w-4xl relative z-10">
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="font-heading text-2xl md:text-3xl text-center text-primary text-glow-cyan mb-12"
+        className="text-center mb-12"
       >
-        Live Magic
-      </motion.h2>
+        <span className="text-primary/30 text-3xl font-display block mb-3">◉</span>
+        <h2 className="font-display text-2xl md:text-3xl text-primary text-glow-cyan">
+          Live Magic
+        </h2>
+      </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {stats.map((s, i) => (
@@ -26,7 +30,7 @@ const LiveStatsSection = () => (
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
-            className="spell-card rounded-xl p-6 text-center"
+            className={`spell-card rounded-xl p-6 text-center group hover:${s.glow}`}
           >
             <span className="text-3xl mb-2 block">{s.icon}</span>
             <span className="font-display text-2xl md:text-3xl text-accent text-glow-gold block mb-1">{s.value}</span>

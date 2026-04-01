@@ -14,13 +14,12 @@ const Navbar = () => {
           TechWiz
         </a>
 
-        {/* Desktop */}
         <ul className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => (
             <li key={item}>
               <a
                 href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                className="text-sm font-body text-muted-foreground hover:text-primary transition-colors duration-300 hover:text-glow-cyan"
+                className="text-sm font-body text-muted-foreground hover:text-primary transition-all duration-300 hover:text-glow-cyan"
               >
                 {item}
               </a>
@@ -28,9 +27,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <button
-          className="hidden lg:inline-flex px-4 py-2 rounded-lg bg-primary/10 border border-primary/30 text-primary text-sm font-body hover:bg-primary/20 transition-all box-glow-cyan"
-        >
+        <button className="hidden lg:inline-flex ritual-button px-4 py-2 rounded-lg text-primary text-sm font-body">
           Connect Wallet
         </button>
 
@@ -60,7 +57,7 @@ const Navbar = () => {
                 </li>
               ))}
               <li>
-                <button className="w-full mt-2 px-4 py-2 rounded-lg bg-primary/10 border border-primary/30 text-primary text-sm font-body">
+                <button className="w-full mt-2 ritual-button px-4 py-2 rounded-lg text-primary text-sm font-body">
                   Connect Wallet
                 </button>
               </li>
